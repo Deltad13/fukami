@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorldControllers;
 
 namespace FukamiDemo
 {
@@ -26,6 +27,13 @@ namespace FukamiDemo
             InitializeComponent();
 
             DataContext = new ChainDemoViewModel();
+
+            Unloaded += MainWindow_Unloaded;
+        }
+
+        void MainWindow_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Will.Instance.RunPauseWilling(false);
         }
     }
 }
